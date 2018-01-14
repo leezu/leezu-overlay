@@ -13,7 +13,8 @@ LICENSE="MirOS"
 SLOT="5"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-qt/qtcore:5
+RDEPEND="app-shells/mksh
+         dev-qt/qtcore:5
          dev-qt/qtgui:5
          dev-qt/qtwidgets:5
          kde-frameworks/ki18n:5
