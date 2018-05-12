@@ -1,0 +1,16 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index ce00ca82..54da34d7 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -301,8 +301,10 @@ if (NOT RTAGS_NO_ELISP_FILES)
+ endif ()
+ 
+ install(CODE "message(\"Installing rtags...\")")
++
++option(INSTALL_BASH_COMPLETION "Install bash completion files" ON)
+ include(BashCompletion)
+-if (BASH_COMPLETION_FOUND)
++if (BASH_COMPLETION_FOUND AND INSTALL_BASH_COMPLETION)
+     file (MAKE_DIRECTORY "${PROJECT_BINARY_DIR}/completions")
+     execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink rtags rc
+         COMMAND ${CMAKE_COMMAND} -E create_symlink rtags rdm

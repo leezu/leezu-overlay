@@ -5,7 +5,7 @@ EAPI=6
 
 inherit cmake-utils git-r3
 
-DESCRIPTION="This is a sample skeleton ebuild file"
+DESCRIPTION="A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs based on clang."
 HOMEPAGE="http://www.rtags.net/"
 # The github zip does not contain the submodule(s) required to build the
 # project, so use the git version and the git-r3 eclass instead
@@ -19,5 +19,18 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND="sys-devel/clang:=
-	sys-libs/ncurses:0"
+    sys-libs/ncurses:0"
 RDEPEND="${DEPEND}"
+
+PATCHES=(
+    # this allows to disable bash-completion installation
+    ${FILESDIR}/bash-completion.patch
+)
+
+src_configure() {
+    local mycmakeargs=(
+        -DINSTALL_BASH_COMPLETION=OFF
+    )
+
+    cmake-utils_src_configure
+}
