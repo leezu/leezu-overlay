@@ -1,0 +1,20 @@
+#!/sbin/openrc-run
+# Copyright 1999-2019 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+command="/usr/bin/env V2RAY_LOCATION_ASSET="/etc/v2ray" /usr/bin/v2ray"
+command_args="-config /etc/v2ray/config.json"
+command_args_background="true"
+pidfile="/run/v2ray.pid"
+start_stop_daemon_args="--background --make-pidfile --stderr /var/log/v2ray.log --stdout /var/log/v2ray.log"
+name="V2Ray Proxy Daemon"
+depend() {
+	need net
+}
+checkconfig() {
+	if [ ! -f /etc/v2ray/config.json ]; then
+		eerror "/etc/v2ray/config.json does not exist."
+	fi
+}
+start_pre() {
+	checkconfig || return 1
+}
