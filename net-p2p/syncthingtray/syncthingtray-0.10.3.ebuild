@@ -5,8 +5,8 @@ EAPI=6
 
 inherit cmake-utils
 
-DESCRIPTION="Common C++ classes and routines used by my applications such as argument parser, IO and conversion utilities"
-HOMEPAGE="https://github.com/Martchus/cpp-utilities"
+DESCRIPTION="Tray application and Dolphin/Plasma integration for Syncthing"
+HOMEPAGE="https://github.com/Martchus/syncthingtray"
 SRC_URI="https://github.com/Martchus/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
@@ -14,11 +14,22 @@ SLOT="5"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=""
+RDEPEND="
+	dev-qt/qtcore
+	dev-qt/qtnetwork
+	dev-qt/qtdbus
+	dev-qt/qtgui
+	dev-qt/qtwidgets
+	dev-qt/qtsvg
+  >=dev-util/cpp-utilities-5.0.1
+  >=dev-util/qtutilities-6.0.2
+"
 DEPEND="${RDEPEND}"
+
 
 src_configure() {
 	local mycmakeargs=(
+    -DSYSTEMD_SUPPORT=ON
 		-DCMAKE_BUILD_TYPE=Release
 	)
 
