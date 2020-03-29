@@ -11,7 +11,7 @@ SRC_URI="https://github.com/Martchus/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="5"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="
@@ -21,8 +21,8 @@ RDEPEND="
 	dev-qt/qtgui
 	dev-qt/qtwidgets
 	dev-qt/qtsvg
-  >=dev-util/cpp-utilities-5.0.1
-  >=dev-util/qtutilities-6.0.2
+  >=dev-util/cpp-utilities-5.3.0
+  >=dev-util/qtutilities-6.0.5
 "
 DEPEND="${RDEPEND}"
 
