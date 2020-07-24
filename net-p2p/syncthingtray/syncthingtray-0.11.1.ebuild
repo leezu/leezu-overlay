@@ -21,8 +21,8 @@ RDEPEND="
 	dev-qt/qtgui
 	dev-qt/qtwidgets
 	dev-qt/qtsvg
-  >=dev-util/cpp-utilities-5.3.0
-  >=dev-util/qtutilities-6.0.5
+  >=dev-util/cpp-utilities-5.5.0
+  >=dev-util/qtutilities-6.2.0
 "
 DEPEND="${RDEPEND}"
 
